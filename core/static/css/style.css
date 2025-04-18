@@ -1,0 +1,46 @@
+/* Green for credit */
+.credit {
+    background-color: #D4EDDA; /* Light green */
+    color: #155724; /* Dark green text */
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Red for debit */
+.debit {
+    background-color: #F8D7DA; /* Light red */
+    color: #721C24; /* Dark red text */
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Add some styles for the card elements */
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+    flex: 1;
+    text-align: center;
+}
+
+.card.red {
+    background-color: #F8D7DA; /* Light red background */
+}
+
+.transaction-list {
+    margin-top: 30px;
+}
+
+.transaction-item {
+    margin-bottom: 15px;
+}
