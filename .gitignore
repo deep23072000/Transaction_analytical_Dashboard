@@ -1,1 +1,37 @@
-.env
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+*.env
+
+# VS Code and other IDEs
+.vscode/
+.idea/
+
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+local_settings.py
+
+# Migrations (optional)
+*/migrations/__pycache__/
+*/migrations/*.py[cod]
+
+# macOS
+.DS_Store
+
+# System files
+Thumbs.db
