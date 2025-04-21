@@ -16,3 +16,18 @@ class Transaction(models.Model):
 
     def __str__(self):
         return f"{self.transaction_type.capitalize()} - ${self.amount}"
+
+
+
+
+class FailedPayment(models.Model):
+    amount = models.FloatField()
+    error_message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+    customer_id = models.CharField(max_length=100, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+
+    def __str__(self):
+        return f"Failed Payment - ${self.amount} - {self.timestamp}"
+
+

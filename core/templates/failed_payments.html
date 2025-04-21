@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Failed Payments</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      color: #c00;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #c00;
+      color: #fff;
+      text-align: left;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .back-link {
+      margin-top: 20px;
+      display: inline-block;
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>⚠️ Failed Payments</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Payment ID</th>
+        <th>Email</th>
+        <th>Amount</th>
+        <th>Error</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for payment in failed_payments %}
+        <tr>
+          <td>{{ payment.payment_intent_id }}</td>
+          <td>{{ payment.email }}</td>
+          <td>${{ payment.amount }}</td>
+          <td>{{ payment.error_message }}</td>
+          <td>{{ payment.timestamp }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="5">No failed payments yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a class="back-link" href="{% url 'dashboard' %}">← Back to Dashboard</a>
+
+  <a href="{% url 'download_pdf' %}" class="btn btn-primary">📄 Download PDF Report</a>
+
+
+
+</body>
+</html>
